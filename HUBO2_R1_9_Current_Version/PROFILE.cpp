@@ -10428,3 +10428,143 @@ void	RightHand_Index(long start_time, long duration, long time, bool direction)
 	}
 }
 
+void Motion_San_BendLeftElbow(int T, char MotionStop,unsigned int MotionNo)
+{
+	static int time = 0;
+	static int time1 = 0;
+	static float ftime = 0.;
+
+	unsigned int i;
+//	unsigned int MotionNo;
+	float	Adjust[NumOfMotionJoint];
+	float	res[NumOfMotionJoint];
+	float	result1[NumOfMotionJoint];
+	float	result2[NumOfMotionJoint];
+	float	LOCALresultMTRAng[TOTAL_MTR_NUM];
+
+	static float LOCALoldJntAng[TOTAL_MTR_NUM];
+	static float LOCALJntAng[TOTAL_MTR_NUM];
+	unsigned char Local_TxData[8];
+	
+//	MotionNo = 44;	// user should change
+
+	if(MotionStop == 0)
+	{
+		if(time>=T)
+		{
+			MotionHipAngPos[0] = 0.;
+			MotionHipAngPos[1] = 0.;
+			pSharedMemory->MotionFlag[MotionNo] = FALSE;
+			pSharedMemory->MotionFlagALL = 0;
+			time=0;
+		}
+		else if((time>=0)&&(time<=T))
+		{
+			time1 = 0;
+			ftime = 0.;
+			
+			if(time==0)
+			{
+				for(i=0;i<NumOfMotionJoint;i++)
+				{
+					Adjust[i]  = 0.;
+					res[i]  = 0.;
+					result1[i] = 0.;
+					result2[i] = 0.;
+				}
+				Adjust[3]  = 10.;
+				Adjust[4]  = 10.;
+			}
+			
+			for(i=RSP;i<LEB;i++)
+			{
+				LOCALoldJntAng[i] = v_AngPos[i];
+			}
+			
+			LOCALoldJntAng[RHP] = MotionHipAngPos[1];
+			LOCALoldJntAng[LHP] = MotionHipAngPos[0];
+		
+			// user modified code /////////////////////////////////////////////////////////
+
+			// LEB from 0 to 45 then back to 0 
+			FTN_half_1_cos( 1.0f,time,    25,100,0,0,&result1[LEB]);
+			FTN_half_1_cos(-1.0f,time,    325,100,0,0,&result2[LEB]);
+			res[LEB] = (float)(45.*(result1[LEB]+result2[LEB]));
+
+			/*
+			
+			FTN_half_1_cos(-1.0f,time,    100,100,0,0,&result1[2]);
+			FTN_half_1_cos( 1.0f,time,    200,100,0,0,&result2[2]);
+			FTN_half_1_cos(-1.0f,time,    400,100,0,0,&result1[3]);
+			FTN_half_1_cos( 1.0f,time,    500,100,0,0,&result2[3]);
+			res[1] = (float)(90.*(result1[2]+result2[2]+result1[3]+result2[3]));
+				*/
+			///End of the user modified code ////////////////////////////////////////////
+
+			//UpperMovement[RSP] = res[RSP];//(float)0.;	// R-Shoulder Pitch	
+			//UpperMovement[RSR] = res[RSR];//res[0];// + result[10];	// R-Shoulder Roll	
+			//UpperMovement[RSY] = res[RSY];//(float)0.;// + result[11];	// R-Shoulder Yaw
+			//UpperMovement[REB] = res[REB];//(float)0.;// + result[12];	// R-Elbow	Pitch
+			
+			UpperMovement[LSP] = res[LSP]; //(float)0.;	// L-Shoulder Pitch
+			UpperMovement[LSR] = res[LSR]; //(float)0.; //;res[1];// + result[ 4];	// L-Shoulder Roll
+			UpperMovement[LSY] = res[LSY]; //(float)0.;// + result[ 5];	// L-Shoulder Yaw
+			UpperMovement[LEB] = res[LEB]; //(float)0.;// + result[ 6];	// L-Elbow	Pitch		
+			
+			UpperMovement[WST] = (float)0.;// + result[ 0];	// Trunk
+			
+			//UpperMovement[RWY] = res[RWY];//(float)0.;
+			UpperMovement[RW1] = (float)0.;
+			UpperMovement[RW2] = (float)0.;
+			
+			UpperMovement[LWY] = res[LWY]; //(float)0.;
+			UpperMovement[LW1] = (float)0.;
+			UpperMovement[LW2] = (float)0.;
+
+			UpperMovement[NKY] = (float)0.;
+			UpperMovement[NK1] = (float)0.;
+			UpperMovement[NK2] = (float)0.;
+			
+			MotionHipAngPos[0] = (float)0.;// + result[15]; // Hip Pitch
+			MotionHipAngPos[1] = MotionHipAngPos[0];
+			//////////
+			for(i=RSP;i<LEB;i++)
+			{
+				LOCALJntAng[i] = v_AngPos[i];
+			}
+			LOCALJntAng[RHP] = MotionHipAngPos[1];
+			LOCALJntAng[LHP] = MotionHipAngPos[0];
+			time++;
+		}
+	}
+	else if(MotionStop == 1)
+	{
+		ftime = (float)(time1/UpperMotionRecovertime);
+		
+		for(i=RSP;i<LEB;i++)
+		{
+			FTN_3poly(ftime,LOCALJntAng[i],(float)((LOCALJntAng[i]-LOCALoldJntAng[i])*UpperMotionRecovertime),DefalutUpper[i],0,&LOCALresultMTRAng[i]);
+			v_AngPos[i]=LOCALresultMTRAng[i];
+		}
+		FTN_3poly(ftime,LOCALJntAng[RHP],(float)((LOCALJntAng[RHP]-LOCALoldJntAng[RHP])*UpperMotionRecovertime),0,0,&LOCALresultMTRAng[RHP]);
+		MotionHipAngPos[1] = LOCALresultMTRAng[RHP];
+
+		FTN_3poly(ftime,LOCALJntAng[LHP],(float)((LOCALJntAng[LHP]-LOCALoldJntAng[LHP])*UpperMotionRecovertime),0,0,&LOCALresultMTRAng[LHP]);
+		MotionHipAngPos[0] = LOCALresultMTRAng[LHP];
+
+		time = 0;
+		if(time1<=UpperMotionRecovertime)	time1++;
+		else if(time1>=UpperMotionRecovertime)
+		{
+			pSharedMemory->MotionFlag[MotionNo] = FALSE;
+			pSharedMemory->MotionFlagALL = 0;
+			MotionHipAngPos[0] = 0.;
+			MotionHipAngPos[1] = 0.;
+			time=0;
+			time1=0;
+			ftime = 0.;
+		}
+	}
+
+}
+

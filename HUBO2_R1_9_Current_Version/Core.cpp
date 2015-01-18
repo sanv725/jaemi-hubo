@@ -835,15 +835,7 @@ void RTFCNDCL TimerHandler(PVOID context)
 					}
 					else if(pSharedMemory->MotionFlag[47] == TRUE)
 					{
-<<<<<<< HEAD
-						Motion_San_BendLeftElbow(pSharedMemory->MotionLength[47], pSharedMemory->MOTION_Stop, 47);
-=======
-						Motion_Aux_Bend_Right_Elbow(pSharedMemory->MotionLength[47], pSharedMemory->MOTION_Stop, 47);
-					}
-					else if(pSharedMemory->MotionFlag[48] == TRUE)
-					{
-						Motion_Aux_UNLV(pSharedMemory->MotionLength[48], pSharedMemory->MOTION_Stop, 48);
->>>>>>> Plou/master
+						Motion_Aux_UNLV(pSharedMemory->MotionLength[47], pSharedMemory->MOTION_Stop, 47);
 					}
 				}
 				//#################################### Scripting section ###############################################

@@ -146,14 +146,9 @@ protected:
 	afx_msg void OnJaemiSaysScript1();
 	afx_msg void OnJaemiSaysScript2();
 	afx_msg void OnJaemiSaysCancel();
-<<<<<<< HEAD
+
 	afx_msg void OnGestureSanBendLeftElbow();
-	afx_msg void OnGestureBendLeftElbow();
-=======
-	afx_msg void OnGestureAuxBendRightElbow();
-	afx_msg void OnGestureRaiseRightHand2();
 	afx_msg void OnGestureAuxUnlv();
->>>>>>> Plou/master
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };

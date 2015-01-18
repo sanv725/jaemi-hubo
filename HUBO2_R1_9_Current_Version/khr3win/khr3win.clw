@@ -52,41 +52,41 @@ Resource17=IDD_DIALOG_PROF_GRAPH
 Class22=CMotorState
 Resource18=IDD_DIALOG_MOTOR_STATE
 <<<<<<< HEAD
-Resource19=IDD_KHR3WIN_DIALOG (Korean)
-Resource20=IDD_DIALOG_Z_ENCODER (Korean)
-Resource21=IDD_DIALOG_KIRK2_WALKING (Korean)
-Resource22=IDD_DIALOG_PARAMETER_SETTING (Korean)
-Resource23=IDD_DIALOG_OPEN_LOOP_TEST (Korean)
-Resource24=IDD_DIALOG_ENC_READ (Korean)
-Resource25=IDD_DIALOG_TILT_READ (Korean)
-Resource26=IDD_DIALOG_UTIL (Korean)
-Resource27=IDD_DIALOG_GESTURE (Korean)
-Resource28=IDD_DIALOG_WALK (Korean)
-Resource29=IDD_DIALOG_FT_READ (Korean)
-Resource30=IDD_DIALOG_ZMP_ZERO (Korean)
-Resource31=IDD_DIALOG_PROF_GRAPH (Korean)
-Resource32=IDD_DIALOG_WALK_EXP (Korean)
-Resource33=IDD_DIALOG_GAIN_SETTING (Korean)
-Resource34=IDD_DIALOG_Z_PHASE (Korean)
-Resource35=IDD_DIALOG_POSITION_CONTROL (Korean)
+Resource19=IDD_DIALOG_WALK_EXP (Korean)
+Resource20=IDD_DIALOG_POSITION_CONTROL (Korean)
+Resource21=IDD_DIALOG_PROF_GRAPH (Korean)
+Resource22=IDD_DIALOG_ZMP_ZERO (Korean)
+Resource23=IDD_DIALOG_ENC_READ (Korean)
+Resource24=IDD_DIALOG_GAIN_SETTING (Korean)
+Resource25=IDD_KHR3WIN_DIALOG (Korean)
+Resource26=IDD_DIALOG_OPEN_LOOP_TEST (Korean)
+Resource27=IDD_DIALOG_KIRK2_WALKING (Korean)
+Resource28=IDD_DIALOG_TILT_READ (Korean)
+Resource29=IDD_DIALOG_GESTURE (Korean)
+Resource30=IDD_DIALOG_UTIL (Korean)
+Resource31=IDD_DIALOG_Z_ENCODER (Korean)
+Resource32=IDD_DIALOG_Z_PHASE (Korean)
+Resource33=IDD_DIALOG_PARAMETER_SETTING (Korean)
+Resource34=IDD_DIALOG_WALK (Korean)
+Resource35=IDD_DIALOG_FT_READ (Korean)
 =======
-Resource19=IDD_KHR3WIN_DIALOG (Korean)
-Resource20=IDD_DIALOG_Z_ENCODER (Korean)
-Resource21=IDD_DIALOG_KIRK2_WALKING (Korean)
-Resource22=IDD_DIALOG_PARAMETER_SETTING (Korean)
-Resource23=IDD_DIALOG_OPEN_LOOP_TEST (Korean)
-Resource24=IDD_DIALOG_ENC_READ (Korean)
-Resource25=IDD_DIALOG_TILT_READ (Korean)
-Resource26=IDD_DIALOG_UTIL (Korean)
-Resource27=IDD_DIALOG_GESTURE (Korean)
-Resource28=IDD_DIALOG_WALK (Korean)
-Resource29=IDD_DIALOG_FT_READ (Korean)
-Resource30=IDD_DIALOG_ZMP_ZERO (Korean)
-Resource31=IDD_DIALOG_PROF_GRAPH (Korean)
-Resource32=IDD_DIALOG_WALK_EXP (Korean)
-Resource33=IDD_DIALOG_GAIN_SETTING (Korean)
-Resource34=IDD_DIALOG_Z_PHASE (Korean)
-Resource35=IDD_DIALOG_POSITION_CONTROL (Korean)
+Resource19=IDD_DIALOG_WALK_EXP (Korean)
+Resource20=IDD_DIALOG_POSITION_CONTROL (Korean)
+Resource21=IDD_DIALOG_PROF_GRAPH (Korean)
+Resource22=IDD_DIALOG_ZMP_ZERO (Korean)
+Resource23=IDD_DIALOG_ENC_READ (Korean)
+Resource24=IDD_DIALOG_GAIN_SETTING (Korean)
+Resource25=IDD_KHR3WIN_DIALOG (Korean)
+Resource26=IDD_DIALOG_OPEN_LOOP_TEST (Korean)
+Resource27=IDD_DIALOG_KIRK2_WALKING (Korean)
+Resource28=IDD_DIALOG_TILT_READ (Korean)
+Resource29=IDD_DIALOG_GESTURE (Korean)
+Resource30=IDD_DIALOG_UTIL (Korean)
+Resource31=IDD_DIALOG_Z_ENCODER (Korean)
+Resource32=IDD_DIALOG_Z_PHASE (Korean)
+Resource33=IDD_DIALOG_PARAMETER_SETTING (Korean)
+Resource34=IDD_DIALOG_WALK (Korean)
+Resource35=IDD_DIALOG_FT_READ (Korean)
 >>>>>>> Plou/master
 Resource36=IDD_DIALOG_MOTOR_STATE (Korean)
 
@@ -2222,7 +2222,7 @@ ImplementationFile=Gesture.cpp
 BaseClass=CDialog
 Filter=D
 VirtualFilter=dWC
-LastObject=IDC_BUTTON_CLOSE
+LastObject=CGesture
 
 [DLG:IDD_DIALOG_MOTOR_STATE]
 Type=1
@@ -2244,7 +2244,7 @@ VirtualFilter=dWC
 
 [DLG:IDD_DIALOG_GESTURE (Korean)]
 Type=1
-Class=?
+Class=CGesture
 ControlCount=105
 Control1=IDC_BUTTON_CLOSE,button,1342242816
 Control2=IDC_STATIC,button,1342177287
@@ -2350,11 +2350,11 @@ Control101=IDC_JAEMI_SAYS_SCRIPT2,button,1342251008
 Control102=IDC_JAEMI_SAYS_CANCEL,button,1342242816
 Control103=IDC_STATIC,button,1342177287
 Control104=IDC_ComMotion,static,1342308352
-Control105=IDC_GESTURE_SAN_BEND_LEFT_ELBOW,button,1342242816
+Control105=IDC_GESTURE_AUX_UNLV,button,1342242816
 
 [DLG:IDD_KHR3WIN_DIALOG (Korean)]
 Type=1
-Class=?
+Class=CKhr3winDlg
 ControlCount=20
 Control1=IDC_BUTTON_RTX_ON,button,1342242816
 Control2=IDC_BUTTON_CAN_ON,button,1342242816
@@ -2379,7 +2379,7 @@ Control20=IDC_BUTTON_MOTOR_STATE,button,1342242816
 
 [DLG:IDD_DIALOG_ENC_READ (Korean)]
 Type=1
-Class=?
+Class=CEncReadDlg
 ControlCount=112
 Control1=IDC_EDIT_ENC0,edit,1350576258
 Control2=IDC_STATIC_LABEL0,static,1342308352
@@ -2496,7 +2496,7 @@ Control112=IDC_STATIC,button,1342177287
 
 [DLG:IDD_DIALOG_FT_READ (Korean)]
 Type=1
-Class=?
+Class=CFT_ReadDlg
 ControlCount=57
 Control1=IDC_BUTTON_CLOSE,button,1342177280
 Control2=IDC_EDIT_FT_RFOOT_MX,edit,1350576256
@@ -2558,7 +2558,7 @@ Control57=IDC_BUTTON_HIDE,button,1342242816
 
 [DLG:IDD_DIALOG_TILT_READ (Korean)]
 Type=1
-Class=?
+Class=CTiltReadDlg
 ControlCount=80
 Control1=IDC_BODY_INERTIA,button,1342177287
 Control2=IDC_STATIC,static,1342308352
@@ -2643,7 +2643,7 @@ Control80=IDC_BUTTON_FOOT_ACC_RESET,button,1342242816
 
 [DLG:IDD_DIALOG_OPEN_LOOP_TEST (Korean)]
 Type=1
-Class=?
+Class=COpenLoopTestDlg
 ControlCount=148
 Control1=IDC_BUTTON_CLOSE,button,1342242816
 Control2=IDC_STATIC_LABEL0,static,1342308352
@@ -2796,7 +2796,7 @@ Control148=IDC_EDIT43,edit,1350631552
 
 [DLG:IDD_DIALOG_POSITION_CONTROL (Korean)]
 Type=1
-Class=?
+Class=CPositionControl
 ControlCount=174
 Control1=IDC_BUTTON_CLOSE,button,1342242816
 Control2=IDC_STATIC_LABEL0,static,1342308352
@@ -2975,7 +2975,7 @@ Control174=IDC_BUTTON_POSE2,button,1342242816
 
 [DLG:IDD_DIALOG_WALK (Korean)]
 Type=1
-Class=?
+Class=CWalk00TestDlg
 ControlCount=139
 Control1=IDC_BUTTON_READY,button,1342242816
 Control2=IDC_BUTTON_HOME,button,1342242816
@@ -3119,7 +3119,7 @@ Control139=IDC_BUTTON_GRIP_ON2,button,1342242816
 
 [DLG:IDD_DIALOG_UTIL (Korean)]
 Type=1
-Class=?
+Class=CUtilityWin
 ControlCount=46
 Control1=IDC_BUTTON_EXIT,button,1342242816
 Control2=IDC_EDIT_LYAW,edit,1350631552
@@ -3170,7 +3170,7 @@ Control46=IDC_BUTTON_NOTE_PAD,button,1342242816
 
 [DLG:IDD_DIALOG_Z_PHASE (Korean)]
 Type=1
-Class=?
+Class=CZ_PhaseSetDlg
 ControlCount=240
 Control1=IDC_EDIT_RHR_OFFSET,edit,1350631552
 Control2=IDC_BUTTON_RHR_Z_POS,button,1342242816
@@ -3415,7 +3415,7 @@ Control240=IDC_autoSetupStop,button,1342242816
 
 [DLG:IDD_DIALOG_Z_ENCODER (Korean)]
 Type=1
-Class=?
+Class=CZ_PhaseEncoderViewDlg
 ControlCount=13
 Control1=IDC_BUTTON_EXIT,button,1342242816
 Control2=IDC_EDIT_LHR_ENC,edit,1350631552
@@ -3433,7 +3433,7 @@ Control13=IDC_EDIT_RKP_ENC,edit,1350631552
 
 [DLG:IDD_DIALOG_ZMP_ZERO (Korean)]
 Type=1
-Class=?
+Class=CZMPZeroDlg
 ControlCount=58
 Control1=IDC_BUTTON_EXIT,button,1342242816
 Control2=IDC_STATIC,static,1342308352
@@ -3496,7 +3496,7 @@ Control58=IDC_BUTTON_INCL_RESET,button,1342242816
 
 [DLG:IDD_DIALOG_WALK_EXP (Korean)]
 Type=1
-Class=?
+Class=CWalkingExpDlg
 ControlCount=156
 Control1=IDC_BUTTON_CLOSE,button,1342242816
 Control2=IDC_BUTTON_HIDE,button,1342242816
@@ -3657,7 +3657,7 @@ Control156=IDC_STATIC,static,1342308352
 
 [DLG:IDD_DIALOG_PROF_GRAPH (Korean)]
 Type=1
-Class=?
+Class=CProfileGraph
 ControlCount=7
 Control1=IDC_BUTTON_HOLD,button,1342242816
 Control2=IDC_STATIC,button,1342177287
@@ -3669,7 +3669,7 @@ Control7=IDC_STATIC_Z_POS_BOARD,static,1342177289
 
 [DLG:IDD_DIALOG_PARAMETER_SETTING (Korean)]
 Type=1
-Class=?
+Class=CParameterSetting
 ControlCount=250
 Control1=IDOK,button,1342242817
 Control2=IDCANCEL,button,1342242816
@@ -3924,7 +3924,7 @@ Control250=IDC_EDIT_DIR_NK2,edit,1350631552
 
 [DLG:IDD_DIALOG_GAIN_SETTING (Korean)]
 Type=1
-Class=?
+Class=CGainSet
 ControlCount=230
 Control1=IDOK,button,1342242817
 Control2=IDCANCEL,button,1342242816
@@ -4159,7 +4159,7 @@ Control230=IDC_STATIC,static,1342308352
 
 [DLG:IDD_DIALOG_KIRK2_WALKING (Korean)]
 Type=1
-Class=?
+Class=CKirkWalking2
 ControlCount=47
 Control1=IDOK,button,1342242817
 Control2=IDC_BUTTON_WALK_IN_PLACE,button,1342242816
@@ -4211,7 +4211,7 @@ Control47=IDC_BUTTON_NO_WALK_IN_PLACE,button,1342242816
 
 [DLG:IDD_DIALOG_MOTOR_STATE (Korean)]
 Type=1
-Class=?
+Class=CMotorState
 ControlCount=4
 Control1=IDOK,button,1342242817
 Control2=IDC_STATIC1,static,1342308352

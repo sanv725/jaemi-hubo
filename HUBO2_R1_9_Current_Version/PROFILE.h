@@ -134,13 +134,8 @@ void 	Motion_HandsOnHips(int T, char MotionStop,unsigned int MotionNo);
 void 	Motion_PointRight(int T, char MotionStop,unsigned int MotionNo);
 void 	Motion_PointLeft(int T, char MotionStop,unsigned int MotionNo);
 void 	Motion_PointBothLeftRight(int T, char MotionStop,unsigned int MotionNo);
-<<<<<<< HEAD
-void 	Motion_San_BendLeftElbow(int T, char MotionStop,unsigned int MotionNo);
-=======
-void 	Motion_Aux_Bend_Right_Elbow(int T, char MotionStop,unsigned int MotionNo);
 void 	Motion_Aux_UNLV(int T, char MotionStop,unsigned int MotionNo);
 
->>>>>>> Plou/master
 
 // Finer motion function
 void	PROF_LFingerMotion1(long start_time, long stop_time);

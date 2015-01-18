@@ -10428,7 +10428,11 @@ void	RightHand_Index(long start_time, long duration, long time, bool direction)
 	}
 }
 
+<<<<<<< HEAD
 void Motion_San_BendLeftElbow(int T, char MotionStop,unsigned int MotionNo)
+=======
+void Motion_Aux_Bend_Right_Elbow(int T, char MotionStop,unsigned int MotionNo)
+>>>>>>> Plou/master
 {
 	static int time = 0;
 	static int time1 = 0;
@@ -10485,6 +10489,7 @@ void Motion_San_BendLeftElbow(int T, char MotionStop,unsigned int MotionNo)
 			LOCALoldJntAng[LHP] = MotionHipAngPos[0];
 		
 			// user modified code /////////////////////////////////////////////////////////
+<<<<<<< HEAD
 
 			// LEB from 0 to 45 then back to 0 
 			FTN_half_1_cos( 1.0f,time,    25,100,0,0,&result1[LEB]);
@@ -10492,12 +10497,53 @@ void Motion_San_BendLeftElbow(int T, char MotionStop,unsigned int MotionNo)
 			res[LEB] = (float)(45.*(result1[LEB]+result2[LEB]));
 
 			/*
+=======
+			
+			/*
+			FTN_half_1_cos( 1.0f,time,    0,100,0,0,&result1[0]);
+			FTN_half_1_cos(-1.0f,time,100,100,0,0,&result2[0]);
+			res[0] = (float)(20.*(result1[0]+result2[0]));
+			
+			FTN_half_1_cos(1.0f,time,    200,100,0,0,&result1[1]);
+			FTN_half_1_cos(-1.0f,time,300,100,0,0,&result2[1]);
+			res[1] = (float)(-20.*(result1[1]+result2[1]));
+			
+				
+			// RSP from 0 to 90 then back to 0 
+			FTN_half_1_cos( 1.0f,time,    3,50,0,0,&result1[RSP]);
+			FTN_half_1_cos(-1.0f,time,    200,50,0,0,&result2[RSP]);
+			res[RSP] = (float)(90.*(result1[RSP]+result2[RSP]));
+			*/
+
+			// REB from 0 to 45 then back to 0 
+			FTN_half_1_cos( 1.0f,time,    25,100,0,0,&result1[REB]);
+			FTN_half_1_cos(-1.0f,time,    325,100,0,0,&result2[REB]);
+			res[REB] = (float)(45.*(result1[REB]+result2[REB]));
+
+			/*// RSY from 0 to 35 then back to 0 
+			FTN_half_1_cos( 1.0f,time,    25,40,0,0,&result1[RSY]);
+			FTN_half_1_cos(-1.0f,time,    200,40,0,0,&result2[RSY]);
+			res[RSY] = (float)(35.*(result1[RSY]+result2[RSY]));
+
+			// RSR from 0 to -10 then back to 0 
+			FTN_half_1_cos( 1.0f,time,    25,40,0,0,&result1[RSR]);
+			FTN_half_1_cos(-1.0f,time,    200,40,0,0,&result2[RSR]);
+			res[RSR] = (float)(-10.*(result1[RSR]+result2[RSR]));
+
+			// RWY from 0 to -35 then back to 0 
+			FTN_half_1_cos( 1.0f,time,    25,40,0,0,&result1[RWY]);
+			FTN_half_1_cos(-1.0f,time,    200,40,0,0,&result2[RWY]);
+			res[RWY] = (float)(-35.*(result1[RWY]+result2[RWY]));
+
+
+>>>>>>> Plou/master
 			
 			FTN_half_1_cos(-1.0f,time,    100,100,0,0,&result1[2]);
 			FTN_half_1_cos( 1.0f,time,    200,100,0,0,&result2[2]);
 			FTN_half_1_cos(-1.0f,time,    400,100,0,0,&result1[3]);
 			FTN_half_1_cos( 1.0f,time,    500,100,0,0,&result2[3]);
 			res[1] = (float)(90.*(result1[2]+result2[2]+result1[3]+result2[3]));
+<<<<<<< HEAD
 				*/
 			///End of the user modified code ////////////////////////////////////////////
 
@@ -10505,6 +10551,308 @@ void Motion_San_BendLeftElbow(int T, char MotionStop,unsigned int MotionNo)
 			//UpperMovement[RSR] = res[RSR];//res[0];// + result[10];	// R-Shoulder Roll	
 			//UpperMovement[RSY] = res[RSY];//(float)0.;// + result[11];	// R-Shoulder Yaw
 			//UpperMovement[REB] = res[REB];//(float)0.;// + result[12];	// R-Elbow	Pitch
+=======
+			*/
+			///End of the user modified code ////////////////////////////////////////////
+
+			UpperMovement[RSP] = res[RSP];//(float)0.;	// R-Shoulder Pitch	
+			UpperMovement[RSR] = res[RSR];//res[0];// + result[10];	// R-Shoulder Roll	
+			UpperMovement[RSY] = res[RSY];//(float)0.;// + result[11];	// R-Shoulder Yaw
+			UpperMovement[REB] = res[REB];//(float)0.;// + result[12];	// R-Elbow	Pitch
+			
+			//UpperMovement[LSP] = (float)0.;	// L-Shoulder Pitch
+			//UpperMovement[LSR] = (float)0.; //;res[1];// + result[ 4];	// L-Shoulder Roll
+			//UpperMovement[LSY] = (float)0.;// + result[ 5];	// L-Shoulder Yaw
+			//UpperMovement[LEB] = (float)0.;// + result[ 6];	// L-Elbow	Pitch		
+			
+			UpperMovement[WST] = (float)0.;// + result[ 0];	// Trunk
+			
+			UpperMovement[RWY] = res[RWY];//(float)0.;
+			UpperMovement[RW1] = (float)0.;
+			UpperMovement[RW2] = (float)0.;
+			
+			//UpperMovement[LWY] = (float)0.;
+			UpperMovement[LW1] = (float)0.;
+			UpperMovement[LW2] = (float)0.;
+
+			UpperMovement[NKY] = (float)0.;
+			UpperMovement[NK1] = (float)0.;
+			UpperMovement[NK2] = (float)0.;
+			
+			MotionHipAngPos[0] = (float)0.;// + result[15]; // Hip Pitch
+			MotionHipAngPos[1] = MotionHipAngPos[0];
+			//////////
+			for(i=RSP;i<LEB;i++)
+			{
+				LOCALJntAng[i] = v_AngPos[i];
+			}
+			LOCALJntAng[RHP] = MotionHipAngPos[1];
+			LOCALJntAng[LHP] = MotionHipAngPos[0];
+			time++;
+		}
+	}
+	else if(MotionStop == 1)
+	{
+		ftime = (float)(time1/UpperMotionRecovertime);
+		
+		for(i=RSP;i<LEB;i++)
+		{
+			FTN_3poly(ftime,LOCALJntAng[i],(float)((LOCALJntAng[i]-LOCALoldJntAng[i])*UpperMotionRecovertime),DefalutUpper[i],0,&LOCALresultMTRAng[i]);
+			v_AngPos[i]=LOCALresultMTRAng[i];
+		}
+		FTN_3poly(ftime,LOCALJntAng[RHP],(float)((LOCALJntAng[RHP]-LOCALoldJntAng[RHP])*UpperMotionRecovertime),0,0,&LOCALresultMTRAng[RHP]);
+		MotionHipAngPos[1] = LOCALresultMTRAng[RHP];
+
+		FTN_3poly(ftime,LOCALJntAng[LHP],(float)((LOCALJntAng[LHP]-LOCALoldJntAng[LHP])*UpperMotionRecovertime),0,0,&LOCALresultMTRAng[LHP]);
+		MotionHipAngPos[0] = LOCALresultMTRAng[LHP];
+
+		time = 0;
+		if(time1<=UpperMotionRecovertime)	time1++;
+		else if(time1>=UpperMotionRecovertime)
+		{
+			pSharedMemory->MotionFlag[MotionNo] = FALSE;
+			pSharedMemory->MotionFlagALL = 0;
+			MotionHipAngPos[0] = 0.;
+			MotionHipAngPos[1] = 0.;
+			time=0;
+			time1=0;
+			ftime = 0.;
+		}
+	}
+
+}
+
+void Motion_Aux_UNLV(int T, char MotionStop,unsigned int MotionNo)
+{
+	static int time = 0;
+	static int time1 = 0;
+	static float ftime = 0.;
+
+	unsigned int i;
+//	unsigned int MotionNo;
+	float	Adjust[NumOfMotionJoint];
+	float	res[NumOfMotionJoint];
+	float	result1[NumOfMotionJoint];
+	float	result2[NumOfMotionJoint];
+	float	result3[NumOfMotionJoint];
+	float	result4[NumOfMotionJoint];
+	float	LOCALresultMTRAng[TOTAL_MTR_NUM];
+
+	static float LOCALoldJntAng[TOTAL_MTR_NUM];
+	static float LOCALJntAng[TOTAL_MTR_NUM];
+	unsigned char Local_TxData[8];
+	
+//	MotionNo = 44;	// user should change
+
+	if(MotionStop == 0)
+	{
+		if(time>=T)
+		{
+			MotionHipAngPos[0] = 0.;
+			MotionHipAngPos[1] = 0.;
+			pSharedMemory->MotionFlag[MotionNo] = FALSE;
+			pSharedMemory->MotionFlagALL = 0;
+			time=0;
+		}
+		else if((time>=0)&&(time<=T))
+		{
+			time1 = 0;
+			ftime = 0.;
+			
+			if(time==0)
+			{
+				for(i=0;i<NumOfMotionJoint;i++)
+				{
+					Adjust[i]  = 0.;
+					res[i]  = 0.;
+					result1[i] = 0.;
+					result2[i] = 0.;
+				}
+				Adjust[3]  = 10.;
+				Adjust[4]  = 10.;
+			}
+			
+			for(i=RSP;i<LEB;i++)
+			{
+				LOCALoldJntAng[i] = v_AngPos[i];
+			}
+			
+			LOCALoldJntAng[RHP] = MotionHipAngPos[1];
+			LOCALoldJntAng[LHP] = MotionHipAngPos[0];
+		
+			// user modified code /////////////////////////////////////////////////////////
+			
+			 // Motion will spell U-N-L-V with arms using 6 second intervals per letter.
+  // Absolute motion, not relative to previous position.
+  
+  // *****Letter U*****
+  
+  // ---Right arm---
+
+  // RSR from home (approximately 45 degrees) to 90 degrees
+  FTN_half_1_cos( 1.0f,time,    100,1200,0,0,&result1[RSR]);
+  
+  // RSY to -90 degrees
+  FTN_half_1_cos( 1.0f,time,    100,1200,0,0,&result1[RSY]);
+  
+  // REB to 30 degrees
+  FTN_half_1_cos( 1.0f,time,    100,1200,0,0,&result1[REB]);
+
+  
+  // ---Left arm---
+
+  // LSR from home (approximately -45 degrees) to -90 degrees
+  FTN_half_1_cos( 1.0f,time,    100,1200,0,0,&result1[LSR]);
+
+  // LSY to -90 degrees
+  FTN_half_1_cos( 1.0f,time,    100,1200,0,0,&result1[LSY]);
+
+  
+  // LEB to 30 degrees
+  FTN_half_1_cos( 1.0f,time,    100,1200,0,0,&result1[LEB]);
+  
+  // *****Letter N*****
+  
+  // ---Right arm---
+
+  // RSR from 90 to 110 degrees
+  FTN_half_1_cos( 1.0f,time,    1400,1200,0,0,&result2[RSR]);
+  //res[RSR] = (float)((110.-90.)*(result2[RSR])+90.*(result1[RSR]));
+
+  // (Desired degree - original)*result + original
+  // RSY from -90 to 90 degrees
+  FTN_half_1_cos( 1.0f,time,    1400,1200,0,0,&result2[RSY]);
+  //res[RSY] = (float)((90.+90.)*(result2[RSY])-90.*(result1[RSY]));
+  
+  // REB from 30 to 100 degrees
+  FTN_half_1_cos( 1.0f,time,    1400,1200,0,0,&result2[REB]);
+  //res[REB] = (float)((100.-30.)*(result2[REB])+30.*(result1[REB]));
+  
+  // ---Left arm---
+
+  // LSR from -90 to -25 degrees
+  FTN_half_1_cos( 1.0f,time,    1400,1200,0,0,&result2[LSR]);
+  //res[LSR] = (float)((-25.+90.)*(result2[LSR])-90.*(result1[LSR]));
+  
+  // LSY no change from -90 degrees
+  
+  // LEB from 30 to 100 degrees
+  FTN_half_1_cos( 1.0f,time,    1400,1200,0,0,&result2[LEB]);
+  //res[LEB] = (float)((100.-30.)*(result2[LEB])+30.*(result1[LEB]));
+
+  
+  // *****Letter L*****
+  
+  // ---Right arm---
+  
+   // (Desired degree - original)*result + original
+  // RSY from 90 to -90 degrees
+  FTN_half_1_cos( -1.0f,time,    2700,1200,0,0,&result3[RSY]);
+  //res[RSY] = (float)((90.+90.)*(result3[RSY])+90. + (110.-90.)*(result2[RSR])+90.*result1[RSR]);
+
+ // REB from 100 to -10 degrees
+  FTN_half_1_cos( -1.0f,time,    2700,1200,0,0,&result3[REB]);
+  //res[REB] = (float)((-10.-100.)*(result3[REB])+100.);
+
+  // RSR from 110 to 140 degrees
+  FTN_half_1_cos( 1.0f,time,    2700,1200,0,0,&result3[RSR]);
+  //res[RSR] = (float)((140.-110.)*(result3[RSR])+110.);
+
+
+  
+  // ---Left arm---
+  // LEB from 100 to -10 degrees
+  FTN_half_1_cos( -1.0f,time,    2700,1200,0,0,&result3[LEB]);
+  //res[LEB] = (float)((10.+100.)*(result3[LEB])+100.);
+
+  // LSR from -25 to -35 degrees
+  FTN_half_1_cos( 1.0f,time,    2700,1200,0,0,&result3[LSR]);
+  //res[LSR] = (float)((-35.+25.)*(result3[LSR])-25.);
+  
+
+  
+  
+  // *****Letter V*****
+  /*
+  // ---Right arm---
+  
+  // RSP to 180 degrees
+  FTN_half_1_cos( 1.0f,time,    2100,600,0,0,&result1[RSP]);
+  res[RSP] = (float)(180.*(result4[RSP]));
+
+  // RSR to 45 degrees
+  FTN_half_1_cos( 1.0f,time,    2100,600,0,0,&result1[RSR]);
+  res[RSR] = (float)(45.*(result4[RSR]));
+  
+  // RSY no change
+  
+  // REB no change 
+  
+  // ---Left arm---
+  
+  // LSR to -45 degrees
+  FTN_half_1_cos( 1.0f,time,    2100,600,0,0,&result1[LSR]);
+  res[LSR] = (float)(-45.*(result4[LSR]));
+  
+  // LSY no change from -90 degrees
+  
+  // LEB to 180 degrees
+  FTN_half_1_cos( 1.0f,time,    2100,600,0,0,&result1[LEB]);
+  res[LEB] = (float)(180.*(result4[LEB]));
+  
+  // *****Motion Complete - Return to Home Position*****
+  
+  // ---Right arm---
+  
+  // RSP to 180 degrees
+  FTN_half_1_cos(-1.0f,time,    2800,600,0,0,&result2[RSP]);
+  res[RSP] = (float)(180.*(result4[RSP]+result2[RSP]));
+
+  // RSR to 45 degrees
+  FTN_half_1_cos(-1.0f,time,    2800,600,0,0,&result2[RSR]);
+  res[RSR] = (float)(45.*(result4[RSR]+result2[RSR]));
+  
+  // RSY to home
+  FTN_half_1_cos(-1.0f,time,    2800,600,0,0,&result2[RSY]);
+  res[RSY] = (float)(90.*(result4[RSY]+result2[RSY]));
+  
+  // REB to home
+  FTN_half_1_cos(-1.0f,time,    2800,600,0,0,&result2[REB]);
+  res[REB] = (float)(135.*(result4[REB]+result2[REB]));
+  
+  
+  // ---Left arm---
+  
+  // LSR to -45 degrees
+  FTN_half_1_cos(-1.0f,time,    2800,600,0,0,&result2[LSR]);
+  res[LSR] = (float)(-45.*(result4[LSR]+result2[LSR]));
+  
+  // LSY to home
+  FTN_half_1_cos(-1.0f,time,    2800,600,0,0,&result2[LSY]);
+  res[LSY] = (float)(-90.*(result4[LSY]+result2[LSY]));
+  
+  // LEB to 180 degrees
+  FTN_half_1_cos(-1.0f,time,    2800,600,0,0,&result2[LEB]);
+  res[LEB] = (float)(180.*(result4[LEB]+result2[LEB]));
+
+  */
+
+  // sum of all movements beginning at different times
+  	res[RSR] = (float)((140.-110.)*(result3[RSR])+((110.-90.)*(result2[RSR])+90.*result1[RSR]));
+	res[RSY] = (float)((90.+90.)*(result3[RSY])+(90.+90.)*(result2[RSY])-90.*(result1[RSY]));
+	res[REB] = (float)((-10.-85.)*(result3[REB])+(85.-30.)*(result2[REB])+30.*(result1[REB]));
+	res[LSR] = (float)((-35.+25.)*(result3[LSR])+(-25.+90.)*(result2[LSR])-90.*(result1[LSR]));
+	res[LSY] = (float)(-90.*(result1[LSY]));
+	res[LEB] = (float)((10.=85.)*(result3[LEB])+(85.-30.)*(result2[LEB])+30.*(result1[LEB]));
+
+
+			///End of the user modified code ////////////////////////////////////////////
+
+			UpperMovement[RSP] = res[RSP];//(float)0.;	// R-Shoulder Pitch	
+			UpperMovement[RSR] = res[RSR];//res[0];// + result[10];	// R-Shoulder Roll	
+			UpperMovement[RSY] = res[RSY];//(float)0.;// + result[11];	// R-Shoulder Yaw
+			UpperMovement[REB] = res[REB];//(float)0.;// + result[12];	// R-Elbow	Pitch
+>>>>>>> Plou/master
 			
 			UpperMovement[LSP] = res[LSP]; //(float)0.;	// L-Shoulder Pitch
 			UpperMovement[LSR] = res[LSR]; //(float)0.; //;res[1];// + result[ 4];	// L-Shoulder Roll
@@ -10513,7 +10861,11 @@ void Motion_San_BendLeftElbow(int T, char MotionStop,unsigned int MotionNo)
 			
 			UpperMovement[WST] = (float)0.;// + result[ 0];	// Trunk
 			
+<<<<<<< HEAD
 			//UpperMovement[RWY] = res[RWY];//(float)0.;
+=======
+			UpperMovement[RWY] = res[RWY];//(float)0.;
+>>>>>>> Plou/master
 			UpperMovement[RW1] = (float)0.;
 			UpperMovement[RW2] = (float)0.;
 			
@@ -10566,5 +10918,9 @@ void Motion_San_BendLeftElbow(int T, char MotionStop,unsigned int MotionNo)
 		}
 	}
 
+<<<<<<< HEAD
 }
 
+=======
+}
+>>>>>>> Plou/master
